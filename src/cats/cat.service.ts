@@ -26,7 +26,6 @@ export class CatService {
   }
 
   create(cat: Cat) {
-    console.log('cat: ', cat);
     this.cats.push(cat);
   }
 }

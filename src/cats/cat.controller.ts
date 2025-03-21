@@ -23,7 +23,7 @@ export class CatController {
 
   //- định nghĩa một phương thức GET với đường dẫn /cats
   //- khi có request GET tới /cats, phương thức này sẽ được gọi
-  @Get('sleep/*') //- đường dẫn cuối cùng sẽ là /cats/sleep
+  @Get('sleep') //- đường dẫn cuối cùng sẽ là /cats/sleep
   getCatsSleep(): dataResponse {
     if (this.appService.findAllCats()) {
       return {

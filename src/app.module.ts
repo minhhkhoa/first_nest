@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CatController } from './cats/cat.controller';
-import { CatService } from './cats/cat.service';
+import { CatsModule } from './cats/cats.module';
 
 //- định nghĩa một module
 @Module({
-  imports: [],
-  controllers: [CatController],
-  providers: [CatService],
+  imports: [CatsModule],
 })
 export class AppModule {}
