@@ -11,6 +11,7 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(LoggerMiddleware)
+      .exclude({ path: 'cats/all', method: RequestMethod.GET }) //- loại trừ route /cats/all
       .forRoutes({ path: 'cats/*', method: RequestMethod.GET }); //- áp dụng middleware cho tất cả các route GET trong module cats/*
   }
 }
