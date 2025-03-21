@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 
@@ -9,6 +9,8 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 export class AppModule {
   //- sử dụng middleware cho tất cả các route trong module cats
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('cats');
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: 'cats/*', method: RequestMethod.GET }); //- áp dụng middleware cho tất cả các route GET trong module cats/*
   }
 }
